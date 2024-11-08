@@ -37,7 +37,7 @@ const StudentRegisterForm = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-black">
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+      <div className="bg-black p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-3xl text-white mb-6 text-center">
           Student Registration
         </h2>
@@ -50,7 +50,7 @@ const StudentRegisterForm = () => {
               value={name}
               name="name"
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-3 mt-1 rounded-lg bg-gray-700 text-white"
+              className="w-full p-3 mt-1 rounded-lg bg-black border border-white/40 text-white"
               required
             />
           </div>
@@ -61,7 +61,7 @@ const StudentRegisterForm = () => {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 mt-1 rounded-lg bg-gray-700 text-white"
+              className="w-full p-3 mt-1 rounded-lg bg-black border border-white/40 text-white"
               required
             />
           </div>
@@ -72,7 +72,7 @@ const StudentRegisterForm = () => {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-3 mt-1 rounded-lg bg-gray-700 text-white"
+              className="w-full p-3 mt-1 rounded-lg bg-black border border-white/40 text-white"
               required
             />
           </div>
@@ -83,12 +83,12 @@ const StudentRegisterForm = () => {
               value={profilePicture}
               name="profilePicture"
               onChange={(e) => setProfilePicture(e.target.value)}
-              className="w-full p-3 mt-1 rounded-lg bg-gray-700 text-white"
+              className="w-full p-3 mt-1 rounded-lg bg-black border border-white/40 text-white"
             />
           </div>
           <button
             type="submit"
-            className="w-full py-3 mt-4 bg-blue-600 text-white rounded-lg hover:bg-blue-500"
+            className="w-60 py-3 mt-4 bg-black border border-white/40 text-white rounded-lg hover:bg-blue-500"
           >
             Register
           </button>
