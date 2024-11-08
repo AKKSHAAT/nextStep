@@ -91,7 +91,7 @@ const ResumeForm = () => {
                 />
               </div>
             ))}
-            <button type="button" onClick={handleAddEducation} className="w-full p-2 bg-blue-600 rounded-md mb-4">
+            <button type="button" onClick={handleAddEducation} className="w-40 p-2 bg-black text-white border-gray rounded-md mb-4">
               +
             </button>
           </div>
@@ -149,7 +149,7 @@ const ResumeForm = () => {
                 />
               </div>
             ))}
-            <button type="button" onClick={handleAddProject} className="w-full p-2 bg-blue-600 rounded-md mb-4">
+            <button type="button" onClick={handleAddProject} className="w-full p-2 bg-black text-white border-gray rounded-md mb-4">
               +
             </button>
           </div>
@@ -180,7 +180,7 @@ const ResumeForm = () => {
             </button>
           </div>
 
-          <button type="submit" className="w-full p-3 bg-green-600 rounded-md font-semibold mt-4">
+          <button type="submit" className="w-full p-3 bg-black text-white border-gray rounded-md font-semibold mt-4">
             Submit Resume
           </button>
         </form>
