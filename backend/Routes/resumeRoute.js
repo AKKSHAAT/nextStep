@@ -1,11 +1,11 @@
 import express from 'express';
-import Resume from '../models/Resume'; // Path to the Resume model
-import { verifyToken } from '../middleware/auth'; // Optional: Add JWT token verification middleware
+import Resume from '../models/Resume.js'; // Path to the Resume model
+import { verifyToken } from '../middleware/auth.js'; // Optional: Add JWT token verification middleware
 
 const router = express.Router();
 
 // Create a new resume
-router.post('/create', verifyToken, async (req, res) => {
+router.post('/create', async (req, res) => {
   const { studentId, education, projects, skills } = req.body;
 
   try {

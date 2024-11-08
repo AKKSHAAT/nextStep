@@ -9,6 +9,7 @@ import {RDash} from "./screens/RDash";
 import { Community } from "./screens/Community";
 
 import Login from "./screens/Login";
+import ResumeForm from "./screens/ResumeForm";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,7 +25,7 @@ function App() {
             <Route path="/community" element={<Community />} />
             <Route path="/upskill" element={<CourseList />} />
             <Route path="/recruiter/:id" element={<RDash />} />
-
+            <Route path="/resume-edit" element={<ResumeForm />}/>
 
             <Route path="/login" element={<Login />} />
 

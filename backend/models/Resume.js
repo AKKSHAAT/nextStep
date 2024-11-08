@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // how to fetch   const resume = await Resume.findOne({ studentId }).populate('studentId');
 
@@ -22,6 +22,4 @@ const resumeSchema = new mongoose.Schema({
   skills: { type: [String]}, // Array of skill strings
 }, { timestamps: true }); // Automatically adds `createdAt` and `updatedAt`
 
-const Resume = mongoose.model('Resume', resumeSchema);
-
-module.exports = Resume;
+export default mongoose.model('Resume', resumeSchema);
