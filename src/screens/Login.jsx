@@ -36,7 +36,6 @@ const Login = () => {
 
         if (res.data.rec) {
           localStorage.setItem("rec", true);
-          
           navigate(`/recruiter/${res.data.id}`);
         } else {
           navigate(`/dashboard/${res.data.id}`);
