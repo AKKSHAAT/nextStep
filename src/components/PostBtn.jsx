@@ -6,7 +6,7 @@ export const PostBtn = ({ text = "", onClick }) => {
       onClick={onClick}
       className="
         capitalize
-        bg-fuchsia-300 
+        bg-white/20
         text-white 
         font-semibold
         rounded-xl 
@@ -19,6 +19,7 @@ export const PostBtn = ({ text = "", onClick }) => {
         duration-200 
         hover:scale-110
         shadow-md 
+        hover:bg-white/50
         hover:shadow-lg
       "
     >

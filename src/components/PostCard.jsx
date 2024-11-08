@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const PostCard = ({ title = "", content = "", author = "" }) => {
   return (
-    <div className="flex-col bg-white p-6 rounded-lg shadow-md my-2 text-md capitalize">
+    <div className="flex-col bg-black text-white p-6 rounded-lg shadow-md my-2 text-md capitalize">
       <div className="flex items-start gap-3">
         <ProfileImage small={true} />
         <div className="w-48 self-start">
