@@ -1,4 +1,5 @@
 import React from "react";
+import {PostBtn} from "./PostBtn"
 
 export const NextResume = () => {
   return (
@@ -6,6 +7,9 @@ export const NextResume = () => {
         <p className="mb-4 text-gray-600 border-b-2">Education</p>
         <p className="mb-4 text-gray-600 border-b-2">Projects</p>
         <p className="mb-4 text-gray-600 border-b-2">Skills</p>
+        <div>
+          <PostBtn text={"edit"}/>
+        </div>
     </div>
   );
 };

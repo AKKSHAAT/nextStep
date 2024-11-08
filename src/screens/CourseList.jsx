@@ -1,7 +1,9 @@
-import React from 'react'
-
+import React from "react";
+import { JobCard } from "../components/JobCard";
 export const CourseList = () => {
   return (
-    <div>CourseList</div>
-  )
-}
+    <div>
+      <JobCard organization={"Amazon"} role={"Software engineer intern"} />
+    </div>
+  );
+};

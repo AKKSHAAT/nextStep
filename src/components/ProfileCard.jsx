@@ -1,15 +1,16 @@
 import React from "react";
+import { Tags } from "./Tags";
+import { ProfileImage } from "./ProfileImage";
 
-export const ProfileCard = () => {
+export const ProfileCard = ({recruiter = false, company="", role=""}) => {
   return (
     <div className="w-80 h-40 shadow-lg  rounded-lg p-4">
       <div className="flex ">
-        <div className="w-20 h-20 rounded-full bg-slate-400">
-          <img />
-        </div>
+        <ProfileImage />
         <div className=" font-normal capitalize mx-6 mt-4">
+          {recruiter && <Tags text="recruiter"/> }
           <p>abhinav</p>
-          <p>web developer</p>
+          <p>{recruiter ? company : role}</p>
         </div>
       </div>
       <div className="mt-6 flex gap-2">
