@@ -1,23 +1,24 @@
-import Express from 'express'
+import express from 'express'
 import dotenv from 'dotenv';
 import connectDB from './db.js';
+import cors from 'cors';
+
+// ------------------routes-----------------
 import studentRoutes from './Routes/studentRoutes.js'
-import recruiterRoutes from './models/recruiterRoutes.js';
-import jobpostRoutes from './models/jobpostRoutes.js';
+import recruiterRoute from './Routes/recruiterRoutes.js'
 
 dotenv.config();
 connectDB();
 
-const app = Express();
+const app = express();
+
 // ----------middlewares
+app.use(cors("*"));
+app.use(express.json()); 
+
 //----- routes
-app.use('/api', studentRoutes); // Prefix '/api' to your routes
-app.use('/api', recruiterRoutes)
-app.use('/api', jobpostRoutes)
-app.use(bodyParser.json()); 
-
-
-
+app.use('/api/student', studentRoutes); 
+app.use('/api/recruiter', recruiterRoute); 
 
 // ------------consts
 const PORT = process.env.PORT || 6969;
