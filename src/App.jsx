@@ -17,6 +17,7 @@ function App() {
             <Route path="/" element={<UserDash />} />
             <Route path="/jobs" element={<JobsList />} />
             <Route path="/upskill" element={<CourseList />} />
+            <Route path="/" element={<RDash />} />
           </Routes>
         </div>
       </Router>
