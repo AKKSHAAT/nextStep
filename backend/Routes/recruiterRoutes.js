@@ -41,14 +41,12 @@ router.post('/login', async (req, res) => {
     if (!recruiter) {
       return res.status(404).json({ message: 'Recruiter not found' });
     }
-
-    // Here we are directly comparing passwords without bcrypt (not recommended in production)
     if (recruiter.password !== password) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
     const token = jwt.sign({ id: recruiter._id, email: recruiter.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.status(200).json({ message: 'Login successful', token });
+    res.status(200).json({ message: 'Login successful', token , id: recruiter._id, email: recruiter.email , rec: true});
   } catch (error) {
     console.error('Error logging in recruiter:', error);
     res.status(500).json({ message: 'Error logging in recruiter' });
@@ -93,7 +91,7 @@ router.delete('/delete', verifyToken, async (req, res) => {
 });
 
 
-router.get('/:recruiterId', verifyToken, async (req, res) => {
+router.get('/:recruiterId', async (req, res) => {
   const { recruiterId } = req.params;
 
   try {

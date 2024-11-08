@@ -4,6 +4,7 @@ import { Heading } from "../components/Heading";
 import { NextResume } from "../components/NextResume";
 import { PostBtn } from "../components/PostBtn";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
 export const RDash = () => {

@@ -19,7 +19,7 @@ function App() {
         <Nav />
         <div className="mx-16">
           <Routes>
-            <Route path="/dashboard" element={<UserDash />} />
+            <Route path="/dashboard/:id" element={<UserDash />} />
             <Route path="/jobs" element={<JobsList />} />
             <Route path="/community" element={<Community />} />
             <Route path="/upskill" element={<CourseList />} />

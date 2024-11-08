@@ -54,7 +54,7 @@ router.post('/login', async (req, res) => {
       expiresIn: '1h', // Token expiry time
     });
 
-    res.status(200).json({ token });
+    res.status(200).json({ token , id: student._id, email: student.email});
   } catch (error) {
     console.error('Error logging in student:', error);
     res.status(500).json({ message: 'Error logging in' });
@@ -62,7 +62,7 @@ router.post('/login', async (req, res) => {
 });
 
 // CRUD: Get all students (for example)
-router.get('/', verifyToken, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const students = await Student.find();
     res.status(200).json(students);
@@ -73,12 +73,13 @@ router.get('/', verifyToken, async (req, res) => {
 });
 
 // CRUD: Get a single student
-router.get('/:studentId', verifyToken, async (req, res) => {
+router.get('/:studentId', async (req, res) => {
   const { studentId } = req.params;
-
+  console.log(studentId);
   try {
     const student = await Student.findById(studentId);
     if (!student) {
+      console.log("Student not found");
       return res.status(404).json({ message: 'Student not found' });
     }
     res.status(200).json(student);
