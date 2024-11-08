@@ -13,6 +13,7 @@ function App() {
         <div className="mx-16">
           <Routes>
             <Route path="/" element={<UserDash />} />
+            <Route path="/" element={<RDash />} />
           </Routes>
         </div>
       </Router>
