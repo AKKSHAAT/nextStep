@@ -90,7 +90,7 @@ router.get('/:studentId', async (req, res) => {
 });
 
 // CRUD: Update student details
-router.put('/:studentId', verifyToken, async (req, res) => {
+router.put('/:studentId', async (req, res) => {
   const { studentId } = req.params;
   const { jobRole, profilePicture } = req.body;
 
@@ -113,7 +113,7 @@ router.put('/:studentId', verifyToken, async (req, res) => {
 });
 
 // CRUD: Delete a student
-router.delete('/:studentId', verifyToken, async (req, res) => {
+router.delete('/:studentId', async (req, res) => {
   const { studentId } = req.params;
 
   try {

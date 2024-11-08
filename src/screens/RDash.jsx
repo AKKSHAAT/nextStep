@@ -2,7 +2,6 @@ import React , {useState} from "react";
 import { ProfileCard } from "../components/ProfileCard";
 import { useParams } from "react-router-dom"; 
 import { Heading } from "../components/Heading";
-import { NextResume } from "../components/NextResume";
 import { PostBtn } from "../components/PostBtn";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -37,6 +36,7 @@ export const RDash = () => {
   function showRecruiterJobs(){
     navigate(`/r-jobs/${id}`);
   }
+  
   return (
     <div>
       <Heading text={"dashboard"} />
@@ -44,12 +44,11 @@ export const RDash = () => {
         <div>
           <ProfileCard recruiter={true} company={"gehu"} email={userData.email}/>
           <div className="flex mt-2">
-            <PostBtn text="post a job" />
+            <PostBtn onClick={()=> navigate(`/post-job/${id}`)} text="post a job" />
             <PostBtn text="your Jobs" onClick={showRecruiterJobs}/>
           </div>
         </div>
-        <div className="mx-6 w-[70vw] min-h-40 shadow-lg rounded-lg p-6">
-          
+        <div className="mx-6 w-[70vw] min-h-40 shadow-lg rounded-lg p-6"> 
           <div>
           {
             id === localStorage.getItem('id') && <PostBtn text={"edit profile"} />

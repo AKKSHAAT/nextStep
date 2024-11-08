@@ -2,12 +2,12 @@ import express from 'express'
 import dotenv from 'dotenv';
 import connectDB from './db.js';
 import cors from 'cors';
-
 // ------------------routes-----------------
 import studentRoutes from './Routes/studentRoutes.js'
 import recruiterRoute from './Routes/recruiterRoutes.js'
 import resumeRoute from './Routes/resumeRoute.js'
-
+import jobRoute from './Routes/jobRoutes.js'
+ 
 dotenv.config();
 connectDB();
 
@@ -21,6 +21,7 @@ app.use(express.json());
 app.use('/api/student', studentRoutes); 
 app.use('/api/recruiter', recruiterRoute); 
 app.use('/api/resume', resumeRoute); 
+app.use('/api/jobs', jobRoute);
 
 // ------------consts
 const PORT = process.env.PORT || 6969;

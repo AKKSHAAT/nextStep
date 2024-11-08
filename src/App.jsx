@@ -10,6 +10,7 @@ import { Community } from "./screens/Community";
 
 import Login from "./screens/Login";
 import ResumeForm from "./screens/ResumeForm";
+import JobPostingForm from "./screens/JobPostingForm";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +28,8 @@ function App() {
             <Route path="/recruiter/:id" element={<RDash />} />
             <Route path="/resume-edit" element={<ResumeForm />}/>
 
+            <Route path="/r-jobs/:id" element={<JobsList />}/>
+            <Route path="/post-job/:id" element={<JobPostingForm />}/>
             <Route path="/login" element={<Login />} />
 
           </Routes>

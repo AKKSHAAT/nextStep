@@ -1,22 +1,26 @@
-const express = require('express');
-const router = express.Router();
-const Job = require('../models/Job'); // Path to your Job model
+import express from 'express';
 
-// Create a new job
-router.post('/jobs', async (req, res) => {
+import Job from '../models/Job.js'; // Path to your Job model
+const router = express.Router();
+
+router.post('/', async (req, res) => {
   try {
-    const { title, students, recruiterId, companyName, skills } = req.body;
+    const { title, recruiterId, companyName, skills } = req.body;
+
+    // Basic validation
+    if (!title || !companyName ) {
+      return res.status(400).json({ message: 'Missing required fields or invalid skills format' });
+    }
 
     const newJob = new Job({
       title,
-      students,
       recruiterId,
       companyName,
-      skills,
+      skills, // Skills must be an array of strings
     });
 
     const savedJob = await newJob.save();
-    res.status(201).json(savedJob); // Return the created job as response
+    res.status(201).json(savedJob); // Return the created job as a response
   } catch (error) {
     console.error('Error creating job:', error);
     res.status(500).json({ message: 'Error creating job' });
@@ -24,7 +28,7 @@ router.post('/jobs', async (req, res) => {
 });
 
 // Get all jobs
-router.get('/jobs', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const jobs = await Job.find();
     res.status(200).json(jobs); // Return all jobs
@@ -34,22 +38,23 @@ router.get('/jobs', async (req, res) => {
   }
 });
 
-// Get a single job by its ID
-router.get('/jobs/:id', async (req, res) => {
+// z a single job by its ID
+router.get('/:recruiterId', async (req, res) => {
   try {
-    const job = await Job.findById(req.params.id).populate('students recruiterId');
-    if (!job) {
-      return res.status(404).json({ message: 'Job not found' });
+    const jobs = await Job.find({ recruiterId: req.params.recruiterId }).populate('recruiterId');
+    if (jobs.length === 0) {
+      return res.status(404).json({ message: 'No jobs found for this recruiter' });
     }
-    res.status(200).json(job); // Return the job data
+    res.status(200).json(jobs); // Return all jobs for the recruiter
   } catch (error) {
-    console.error('Error fetching job:', error);
-    res.status(500).json({ message: 'Error fetching job' });
+    console.error('Error fetching jobs:', error);
+    res.status(500).json({ message: 'Error fetching jobs' });
   }
 });
 
+
 // Update a job by its ID
-router.put('/jobs/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const { title, students, recruiterId, companyName, skills } = req.body;
 
@@ -70,7 +75,7 @@ router.put('/jobs/:id', async (req, res) => {
 });
 
 // Delete a job by its ID
-router.delete('/jobs/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const deletedJob = await Job.findByIdAndDelete(req.params.id);
 
@@ -84,4 +89,4 @@ router.delete('/jobs/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
