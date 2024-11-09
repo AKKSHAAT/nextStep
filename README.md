@@ -1,14 +1,15 @@
-# Job Portal Application
+# nextStep
+![Alt Text](public/image.png)
 
-A Comprehensiv job and career development platfrom for graduates
+A Comprehensive job and career development platfrom for graduates
 
 ## Features
 
-- **community section**: View available job listings posted by organizations.
-- **professional feedbacks**: Students can apply for jobs based on their skills and job preferences.
-- **career pathway**: Display a profile image for students and organizations.
-- **Dynamic Skills**: Tags display the required skills for each job, making it easy for students to find suitable roles.
-- **Admin Controls**: Admin users can delete job postings.
+- **community section**: 
+- **professional feedbacks**: 
+- **career pathway**: 
+- **Dynamic Skills**: 
+- **Admin Controls**: 
 
 ## Table of Contents
 - [Installation](#installation)
