@@ -10,6 +10,11 @@ export const JobCard = ({ organization, role, skills, id }) => {
     console.log(res.data);
     window.location.reload();
   }
+
+  async function handleApply() {
+    const res = await axios.put(`/api/jobs/apply/${id}`, {student: localStorage.getItem('id')});
+    console.log(res.data);
+  }
   return (
     <div className="flex bg-black text-white gap-8 p-6 shadow-md my-2 text-md capitalize w-[70dvw]">
       <ProfileImage />

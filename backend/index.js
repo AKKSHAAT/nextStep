@@ -7,7 +7,8 @@ import studentRoutes from './Routes/studentRoutes.js'
 import recruiterRoute from './Routes/recruiterRoutes.js'
 import resumeRoute from './Routes/resumeRoute.js'
 import jobRoute from './Routes/jobRoutes.js'
- 
+import amaRoute from './Routes/amaRoutes.js'
+
 dotenv.config();
 connectDB();
 
@@ -22,6 +23,7 @@ app.use('/api/student', studentRoutes);
 app.use('/api/recruiter', recruiterRoute); 
 app.use('/api/resume', resumeRoute); 
 app.use('/api/jobs', jobRoute);
+app.use('/api/ama', amaRoute);
 
 // ------------consts
 const PORT = process.env.PORT || 6969;

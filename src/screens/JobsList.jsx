@@ -16,8 +16,8 @@ export const JobsList = () => {
     } else {
       const res = await axios.get(`/api/jobs/`);
       setJobs(res.data);
+      console.log("jobs: ", res.data);
     }
-    console.log("jobs: ", res.data);
   }
 
   useEffect(() => {

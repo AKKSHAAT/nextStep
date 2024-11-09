@@ -74,6 +74,28 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+router.put('/apply/:id', async (req, res) => {
+  try {
+    const { student } = req.body; // Only the student ID is needed in the body
+
+    const updatedJob = await Job.findByIdAndUpdate(
+      req.params.id,
+      { $addToSet: { students: student } }, // Use $addToSet to add the student to the array if not already present
+      { new: true } // Return the updated job document
+    );
+
+    if (!updatedJob) {
+      return res.status(404).json({ message: 'Job not found' });
+    }
+
+    res.status(200).json(updatedJob); // Return the updated job data
+  } catch (error) {
+    console.error('Error updating job:', error);
+    res.status(500).json({ message: 'Error updating job' });
+  }
+});
+
+
 // Delete a job by its ID
 router.delete('/:id', async (req, res) => {
   try {

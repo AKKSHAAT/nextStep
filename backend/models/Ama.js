@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const commentSchema = new mongoose.Schema({
   content: { type: String, required: true },
@@ -13,8 +13,7 @@ const amaSchema = new mongoose.Schema({
 }, { timestamps: true }); // Automatically adds `createdAt` and `updatedAt` fields
 
 // Create the Comment model
-const Comment = mongoose.model('Comment', commentSchema);
-// Create the Ama model
-const Ama = mongoose.model('Ama', amaSchema);
+// Ama.js
 
-module.exports = { Ama, Comment };
+export const Comment = mongoose.model('Comment', commentSchema);
+export const Ama = mongoose.model('Ama', amaSchema);
