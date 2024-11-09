@@ -13,6 +13,7 @@ import Login from "./screens/Login";
 import ResumeForm from "./screens/ResumeForm";
 import JobPostingForm from "./screens/JobPostingForm";
 import AMAForm from "./screens/AMAForm";
+import Register from './screens/Register';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -33,6 +34,7 @@ function App() {
             <Route path="/r-jobs/:id" element={<JobsList />}/>
             <Route path="/post-job/:id" element={<JobPostingForm />}/>
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/post/comments/:id" element={<CommentSection />} />
             <Route path="/ama-form" element={<AMAForm />} />
           </Routes>

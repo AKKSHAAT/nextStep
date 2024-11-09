@@ -33,7 +33,7 @@ export const Community = () => {
             key={ama._id} 
             title={ama.title} 
             content={ama.content} 
-            author={ama.creatorId?.name || "Unknown"} 
+            author={ama.creatorId|| "Unknown"} 
             id={ama._id} // Pass `id` correctly here
           />
         );

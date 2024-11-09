@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "../axios.js";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -101,8 +102,8 @@ const Login = () => {
             <label htmlFor="isRecruiter" className="text-sm font-medium">
               Login as Recruiter
             </label>
+          <Link to="/register" className=" text-blue-500 ml-10">New here?</Link>
           </div>
-
           <button
             type="submit"
             className="w-40 p-3 bg-black border border-white-60 rounded-md text-white font-semibold disabled:bg-gray-600"

@@ -4,49 +4,76 @@ import { ProfileImage } from "./ProfileImage";
 import axios from "../axios.js";
 import { Tags } from "./Tags.jsx";
 
-export const JobCard = ({ organization, role, skills, id }) => {
+export const JobCard = ({ organization, role, skills, id, img }) => {
+  // Handle delete
   async function handleDelete() {
-    const res = await axios.delete(`/api/jobs/${id}`);
-    console.log(res.data);
-    window.location.reload();
+    try {
+      const res = await axios.delete(`/api/jobs/${id}`);
+      console.log(res.data);
+      window.location.reload();
+    } catch (err) {
+      console.error("Error deleting job:", err);
+    }
   }
 
+  // Handle apply
   async function handleApply() {
-    const res = await axios.put(`/api/jobs/apply/${id}`, {student: localStorage.getItem('id')});
-    console.log(res.data);
+    try {
+      const res = await axios.put(`/api/jobs/apply/${id}`, {
+        student: localStorage.getItem("id"),
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.error("Error applying:", err);
+    }
   }
+
   return (
-    <div className="flex bg-black text-white gap-8 p-6 shadow-md my-2 text-md capitalize w-[70dvw]">
-      <ProfileImage />
-      <div className="pr-6  w-full">
+    <div className="border border-white/20 text-white rounded-lg shadow-lg p-6 flex gap-8 items-start w-full max-w-4xl mx-auto my-4 hover:shadow-2xl transition-all">
+      {/* Profile Image */}
+      <div className="w-20 h-20">
+        <ProfileImage img={img} />
+      </div>
+
+      <div className="w-full">
+        {/* Job Role */}
         <Link
-          className="text-semibold font-semibold block truncate"
-          title={role} // Optional: show full text on hover
+          to={`/job/${id}`}
+          className="text-xl font-semibold block text-white hover:text-blue-400 truncate"
+          title={role}
         >
           {role}
         </Link>
-        <p className="text-sm font-medium">{organization}</p>
-        <p className="text-sm font-medium">{"adsaldmakpsmdkasndflkasnldasn sjdfkdsjflds fdsfjk;ajsf ajdfkajs;lfdladnas"}</p>
-        <div className="flex mt-10">
-          {skills &&
-            skills.map((skill, i) => <Tags key={skill} text={skill} />)}
+
+        {/* Organization Name */}
+        <p className="text-sm font-medium text-gray-300 mt-1">{organization}</p>
+
+        {/* Skills */}
+        <div className="flex flex-wrap mt-4">
+          {skills && skills.map((skill, i) => <Tags key={i} text={skill} />)}
+        </div>
+
+        {/* Apply/Delete Button */}
+        <div className="mt-6">
+          {!localStorage.getItem("rec") ? (
+            <button
+              onClick={handleApply}
+              className="bg-white/10 text-white py-2 px-4 rounded-lg hover:bg-white/20 transition duration-300"
+            >
+              Apply
+            </button>
+          ) : (
+            skills && (
+              <button
+                onClick={handleDelete}
+                className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300"
+              >
+                Delete
+              </button>
+            )
+          )}
         </div>
       </div>
-      {!localStorage.getItem("rec") ? (
-        <button
-          onClick={handleApply}
-          className=" bg-black rounded-lg h-10 px-2 mt-auto border-2 border-white/30 "
-        >
-          Apply
-        </button>
-      ) : (
-        <button
-          onClick={handleDelete}
-          className=" bg-red-400 rounded-lg h-10 px-2 mt-auto "
-        >
-          Delete
-        </button> 
-      )}
     </div>
   );
 };

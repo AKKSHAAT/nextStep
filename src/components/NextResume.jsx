@@ -63,9 +63,11 @@ export const NextResume = ({ userId }) => {
           </div>
         ))}
       </div>
-      <Link to="/resume-edit">
-        {userId === localStorage.getItem("id") && <PostBtn text={"edit"} />}
-      </Link>
+      <div className="mt-6">
+        <Link to="/resume-edit">
+          {userId === localStorage.getItem("id") && <PostBtn text={"edit"} />}
+        </Link>
+      </div>
     </div>
   );
 };

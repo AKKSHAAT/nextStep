@@ -54,7 +54,7 @@ router.post('/login', async (req, res) => {
 });
 
 // Update recruiter profile
-router.put('/update', verifyToken, async (req, res) => {
+router.put('/update',  async (req, res) => {
   const { companyName, profilePicture } = req.body;
 
   try {
@@ -76,7 +76,7 @@ router.put('/update', verifyToken, async (req, res) => {
 });
 
 // Delete recruiter account
-router.delete('/delete', verifyToken, async (req, res) => {
+router.delete('/delete', async (req, res) => {
   try {
     const recruiter = await Recruiter.findByIdAndDelete(req.user.id);
     if (!recruiter) {

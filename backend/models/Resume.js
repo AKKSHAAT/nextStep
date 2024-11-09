@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 
 const educationSchema = new mongoose.Schema({
   institution: { type: String, required: true },
+  
   degree: { type: String, required: true },
 });
 
